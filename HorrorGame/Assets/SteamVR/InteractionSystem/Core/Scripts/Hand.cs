@@ -504,6 +504,7 @@ namespace Valve.VR.InteractionSystem
 
             if (spewDebugText)
                 HandDebugLog("AttachObject " + objectToAttach);
+            Debug.Log("Getting here");
             objectToAttach.SendMessage("OnAttachedToHand", this, SendMessageOptions.DontRequireReceiver);
         }
 
@@ -1098,6 +1099,7 @@ namespace Valve.VR.InteractionSystem
         //-------------------------------------------------
         protected virtual void OnInputFocus(bool hasFocus)
         {
+            Debug.Log("Getting ehre");
             if (hasFocus)
             {
                 DetachObject(applicationLostFocusObject, true);

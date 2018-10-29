@@ -30,14 +30,11 @@ public class TouchpadMover : MonoBehaviour {
     // Use this for initialization
     void Start () {
         actionSet.ActivatePrimary();
-        wasWalking = false;
-        isWalking = false;
         lastStepPlay = Time.time;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        wasWalking = isWalking;
 
         inputSource = hand.handType;
         Vector3 moveDirection = new Vector3(head.transform.forward.x, 0, head.transform.forward.z);
@@ -51,10 +48,6 @@ public class TouchpadMover : MonoBehaviour {
         updateSounds(move.sqrMagnitude);
 
         Vector3 totalMoveDirection = (moveDirectionPerp * move.x + moveDirection * move.y) * Time.deltaTime * speed;
-
-       
-        Debug.Log(totalMoveDirection.sqrMagnitude);
-        
 
         transform.Translate(totalMoveDirection);
 	}
